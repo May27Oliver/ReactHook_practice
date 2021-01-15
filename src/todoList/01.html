@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h3>Tasks</h3>
+        </header>
+        
+        <div class="add-todo">
+            <label class="add-todo-icon icon" for="add-todo-input"></label>
+            <div class="add-todo-input">
+            <input id="add-todo-input" type="text" placeholder="新增工作" />
+            </div>
+            <div class="add-todo-action">
+            <button class="btn-reset btn-add"> 新增 </button>
+            </div>
+        </div>
+        
+        <div class="todos">
+            <div class="task-item">
+                <div class="task-item-checked">
+                    <span class="icon icon-checked">
+                    <!-- icon-check-circle -->
+                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#ff6600" fill-rule="evenodd"
+                            d="M12 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8m0-17c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9">
+                            </path>
+                        </svg>
+                    </span>
+                </div>
+            
+                <div class="task-item-body">
+                    <span class="task-item-body-text">Foobar</span>
+                    <input class="task-item-body-input" type="text" placeholder="新增工作" />
+                </div>
+                <div class="task-item-action">
+                    <button class="btn-reset btn-destroy icon"> </button>
+                </div>
+            </div>
+            <div class="task-item edit">
+                <div class="task-item-checked">
+                    <span class="icon icon-checked">
+                        <!-- icon-check-hover -->
+                        <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <g fill="#ff6600"  fill-rule="evenodd">
+                            <path
+                                d="M12 20c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8m0-17c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9">
+                            </path>
+                            <path d="M10.9902 13.3027l-2.487-2.51-.71.704 3.193 3.224 5.221-5.221-.707-.707z"></path>
+                            </g>
+                        </svg>
+                    </span>
+                </div>
+            
+                <div class="task-item-body">
+                    <span class="task-item-body-text">Foobar</span>
+                    <input class="task-item-body-input" type="text" placeholder="新增工作" />
+                </div>
+                <div class="task-item-action">
+                    <button class="btn-reset btn-destroy icon"> </button>
+                </div>
+            </div>
+            <div class="task-item done">
+                <div class="task-item-checked">
+                    <span class="icon icon-checked">
+                        <!-- icon-check-active -->
+                        <svg focusable="false" 
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path fill="#ff6600" fill-rule="evenodd"
+                            d="M10.9854 15.0752l-3.546-3.58 1.066-1.056 2.486 2.509 4.509-4.509 1.06 1.061-5.575 5.575zm1.015-12.075c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z">
+                            </path>
+                        </svg>
+                    </span>
+                </div>
+                <div class="task-item-body">
+                    <span class="task-item-body-text">Foobar</span>
+                    <input class="task-item-body-input" type="text" placeholder="新增工作" />
+                </div>
+                <div class="task-item-action">
+                    <button class="btn-reset btn-destroy icon"> </button>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>剩餘項目: 3</p>
+        </footer>
+    </div>
+</body>
+</html>

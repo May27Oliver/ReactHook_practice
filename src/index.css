@@ -1,11 +1,29 @@
+/* * {
+  outline: none;
+  box-sizing: border-box;
+}
 html,
-body {
+body,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #10375c;
+  background-color: #3775af;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Courier;
+} */
+
+@charset "UTF-8";
+:root {
+  --major: #ff6600;
+  --gray: #767678;
+}
+
+html,
+body {
+  background-color: #f4f4f4;
+  font-family: "Lato", "Noto Sans TC", sans-serif;
 }

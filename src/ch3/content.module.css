@@ -1,0 +1,44 @@
+.content {
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.btnPanel {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.btn {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #0a97b0;
+  font-size: 20px;
+}
+
+.btn:active {
+  background: rgb(7, 112, 173);
+  border: none;
+  outline: none;
+}
+
+.infoBox {
+  /* width: 50px; */
+}
+
+.title {
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.number {
+  color: rgb(7, 112, 173);
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 50px;
+}
