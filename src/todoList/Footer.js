@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-const Footer =()=>(
+const Footer =({things})=>(
     <footer>
-        <p>剩餘項目: 3</p>
+        <p>剩餘項目: {things}</p>
     </footer>
 )
 

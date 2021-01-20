@@ -1,7 +1,7 @@
-import {useState} from 'react';
+import clsx from 'clsx';
 
-const TaskItem = ()=>(
-    <div className="task-item">
+const TaskItem = ({title,isDone,pk,deleteItem})=>(
+    <div className={clsx("task-item",{done:isDone})}>
         <div className="task-item-checked">
             <span className="icon icon-checked">
             {/* icon-check-circle */}
@@ -14,11 +14,11 @@ const TaskItem = ()=>(
         </div>
     
         <div className="task-item-body">
-            <span className="task-item-body-text">Foobar</span>
+            <span className="task-item-body-text">{title}</span>
             <input className="task-item-body-input" type="text" placeholder="新增工作" />
         </div>
         <div className="task-item-action">
-            <button className="btn-reset btn-destroy icon"> </button>
+            <button className="btn-reset btn-destroy icon" onClick={()=>deleteItem(pk)}> </button>
         </div>
     </div>
 )

@@ -1,8 +1,8 @@
 import styles from './footer.module.css';
 
-const Footer = () => (
+const Footer = ({status}) => (
     <div className={styles.footer}>
-        Good
+        {status}
     </div>
 )
 
