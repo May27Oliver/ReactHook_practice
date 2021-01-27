@@ -4,21 +4,31 @@ import clsx from 'clsx';
 const TaskItem = ({isDone,pk,deleteItem,handleIsDone,todo,updateTodoTitle})=>{
     const [select,setSelect] = useState(false);//
     const [editTitle,setEditTitle] = useState(todo.title)
+    //顯示/關閉編輯欄位
     const handleClick = (e) => {
-        if(!select){
+        if(!select && isDone === false){
             setSelect(true);
         }else{
             setSelect(false);
         }
     }
+
+    //雙向綁定title的即時修正
     const handleEditChange=(e)=>{
         setEditTitle(e.target.value);
+    }
+
+    //因為不希望isDone的項目名稱被修改，所以做個判斷是否再修改狀態的判斷
+    const checkIsDoneCantModify = () => {
+        if(select){//如果select啟動，代表修改模式正出現，isDone必須關閉修改模式
+            setSelect(false);
+        }
     }
     return (
         <div className={clsx("task-item",{done:isDone,edit:select})}>
             {/* task-item 要有done 和 edit兩個判斷 */}
             <div className="task-item-checked">
-                <span className="icon icon-checked" onDoubleClick={()=>handleIsDone(todo)}>
+                <span className="icon icon-checked" onDoubleClick={()=>handleIsDone(todo,checkIsDoneCantModify)}>
                 {/* icon-check-circle */}
                     <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="#ff6600" fillRule="evenodd"

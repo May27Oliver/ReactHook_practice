@@ -44,7 +44,10 @@ const App = () => {
     }
 
     //顯示編輯input
-    const handleIsDone = (todos) => {
+    const handleIsDone = (todos,callback) => {
+        if(callback){//檢查是否為編輯狀態，如為編輯狀態則關閉編輯狀態
+            callback();
+        }
         todos.isDone = !todos.isDone;
         setTodos(prevTodos=>{
             return [
