@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import TaskItem from './TaskItem';
 
-const Todos = ({todos,deleteItem}) =>(
+const Todos = ({todos,deleteItem,handleIsDone,updateTodoTitle}) =>(
     <div className="todos">
-        {todos.map((item,index)=>(<TaskItem index={index} pk={item.id} key={item.id} title={item.title} isDone={item.isDone} deleteItem={deleteItem}/>))}
+        {todos.map((item,index)=>(<TaskItem index={index} pk={item.id} key={item.id} isDone={item.isDone} deleteItem={deleteItem} handleIsDone={handleIsDone} todo={item} updateTodoTitle={updateTodoTitle}/>))}
     </div>
 )
 

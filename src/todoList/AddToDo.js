@@ -12,7 +12,11 @@ const AddToDo = ({handleAddTodo,inputValue,handleChange}) => {
     return (
         <div className={clsx("add-todo",{active:inputValue.length > 0})}>
             <label className="add-todo-icon icon" htmlFor="add-todo-input"></label>
-            <div className="add-todo-input">
+            <div className="add-todo-input" onKeyPress={e=>{
+                if(e.nativeEvent.keyCode === 13){
+                    handleAddTodo();
+                }
+            }}>
                 <input 
                     id="add-todo-input"
                     type="text"
