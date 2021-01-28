@@ -40,12 +40,16 @@ const TaskItem = ({isDone,pk,deleteItem,handleIsDone,todo,updateTodoTitle})=>{
         
             <div className="task-item-body">
                 <span className="task-item-body-text" onDoubleClick={handleClick}>{editTitle}</span>
-                <input className="task-item-body-input" type="text" placeholder="新增工作" value={editTitle} onChange={handleEditChange} onKeyPress={(e)=>updateTodoTitle(function(){
-                    if(e.nativeEvent.keyCode === 13){
-                        setEditTitle(editTitle);
-                        handleClick();
-                    }
-                })}/>
+                <input className="task-item-body-input" type="text" placeholder="新增工作" 
+                    value={editTitle} 
+                    onChange={handleEditChange} 
+                    onKeyPress={(e)=>updateTodoTitle(()=>{
+                        if(e.nativeEvent.keyCode === 13){
+                            setEditTitle(editTitle);
+                            handleClick();
+                        }
+                    })}
+                />
             </div>
             <div className="task-item-action">
                 <button className="btn-reset btn-destroy icon" onClick={()=>deleteItem(pk)}> </button>
