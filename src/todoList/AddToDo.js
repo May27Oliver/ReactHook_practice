@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import {useEffect} from 'react';
 
 const AddToDo = ({handleAddTodo,inputValue,handleChange}) => {
     // useEffect(()=>{

@@ -1,18 +1,8 @@
 import {useState} from 'react';
 import clsx from 'clsx';
 
-const TaskItem = ({isDone,pk,deleteItem,handleIsDone,todo,updateTodoTitle})=>{
-    const [select,setSelect] = useState(false);//
+const TaskItem = ({pk,deleteItem,handleIsDone,todo,updateTodoTitle,triggerEditColumn})=>{
     const [editTitle,setEditTitle] = useState(todo.title)
-    //顯示/關閉編輯欄位
-    const handleClick = (e) => {
-        if(!select && isDone === false){
-            setSelect(true);
-        }else{
-            setSelect(false);
-        }
-    }
-
     //雙向綁定title的即時修正
     const handleEditChange=(e)=>{
         setEditTitle(e.target.value);
@@ -20,12 +10,12 @@ const TaskItem = ({isDone,pk,deleteItem,handleIsDone,todo,updateTodoTitle})=>{
 
     //因為不希望isDone的項目名稱被修改，所以做個判斷是否再修改狀態的判斷
     const checkIsDoneCantModify = () => {
-        if(select){//如果select啟動，代表修改模式正出現，isDone必須關閉修改模式
-            setSelect(false);
+        if(todo.isEdit){//如果select啟動，代表修改模式正出現，isDone必須關閉修改模式
+            triggerEditColumn(todo)
         }
     }
     return (
-        <div className={clsx("task-item",{done:isDone,edit:select})}>
+        <div className={clsx("task-item",{done:todo.isDone,edit:todo.isEdit})}>
             {/* task-item 要有done 和 edit兩個判斷 */}
             <div className="task-item-checked">
                 <span className="icon icon-checked" onDoubleClick={()=>handleIsDone(todo,checkIsDoneCantModify)}>
@@ -39,14 +29,15 @@ const TaskItem = ({isDone,pk,deleteItem,handleIsDone,todo,updateTodoTitle})=>{
             </div>
         
             <div className="task-item-body">
-                <span className="task-item-body-text" onDoubleClick={handleClick}>{editTitle}</span>
+                <span className="task-item-body-text" onDoubleClick={()=>triggerEditColumn(todo.id)}>{todo.title}</span>
                 <input className="task-item-body-input" type="text" placeholder="新增工作" 
-                    value={editTitle} 
-                    onChange={handleEditChange} 
+                    value={todo.title} 
+                    onChange={handleEditChange}
+                    onDoubleClick={()=>triggerEditColumn(todo.id)}
                     onKeyPress={(e)=>updateTodoTitle(()=>{
                         if(e.nativeEvent.keyCode === 13){
                             setEditTitle(editTitle);
-                            handleClick();
+                            triggerEditColumn(todo)
                         }
                     })}
                 />
