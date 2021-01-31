@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import clsx from 'clsx';
 
-const TaskItem = ({pk,deleteItem,handleIsDone,todo,triggerEditColumn,handleSave})=>{
+const TaskItem = ({pk,deletTodoItem,handleIsDone,todo,triggerEditColumn,handleSave})=>{
     const [tempTitle,setTempTitle] = useState(todo.title);
     //雙向綁定title的即時修正
     const handleEditChange=(e)=>{
@@ -48,7 +48,7 @@ const TaskItem = ({pk,deleteItem,handleIsDone,todo,triggerEditColumn,handleSave}
                 />
             </div>
             <div className="task-item-action">
-                <button className="btn-reset btn-destroy icon" onClick={()=>deleteItem(pk)}> </button>
+                <button className="btn-reset btn-destroy icon" onClick={()=>deletTodoItem(pk)}> </button>
             </div>
         </div>
     )
