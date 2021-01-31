@@ -13,14 +13,15 @@ const App = () => {
     let [inputValue,setInputValue] = useState('');//input欄位的值 
     
     useEffect(()=>{
-        const fetchData = async ()=>{
-            defaultTodos = await getTodos();
-            setTodos(defaultTodos);
-        }
         fetchData();
     },[]);  
     
     //RESTFUL Api functions
+    //Read Data
+    const fetchData = async ()=>{
+            defaultTodos = await getTodos();
+            setTodos(defaultTodos);
+        }
     //新增todo項目
     const handleAddTodo = async() =>{
         if(inputValue.length!== 0){
@@ -28,10 +29,7 @@ const App = () => {
                 title:inputValue,
                 isDone:false
             });
-            setTodos(prevTodos=>[{
-                    title:inputValue,
-                    isDone:false
-            },...prevTodos]);
+            setTodos(prevTodos=>[res,...prevTodos]);
         }
         setInputValue("")
     }
@@ -60,9 +58,9 @@ const App = () => {
     }
     
     //刪除todo事項
-    const deletTodoItem = (id) => { 
+    const deletTodoItem = async (id) => { 
         deleteTodo(id);
-        setTodos(todos.filter(item=>item.id!==id));
+        fetchData();
     }
     
     //開啟關閉edit欄位
@@ -87,21 +85,14 @@ const App = () => {
     }
 
     //儲存edit變更
-    const handleSave = (payload)=>{
+    const handleSave = async(payload)=>{
         const {id ,title} = payload;
         updateTodo({
             id,
             title,
             isDone:false
         })
-        setTodos(prevTodos => 
-            prevTodos.map(todo =>{
-                if(todo.id !== id)
-                    return todo
-                else if(todo.id === id)
-                    return {...todo,title,isEdit:false}
-            })
-        )
+        fetchData();
     }
 
     return (
