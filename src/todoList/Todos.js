@@ -1,8 +1,8 @@
 import TaskItem from './TaskItem';
 
-const Todos = ({todos,deleteItem,handleIsDone,updateTodoTitle,triggerEditColumn}) =>(
+const Todos = ({todos,deleteItem,handleIsDone,triggerEditColumn,handleSave}) =>(
     <div className="todos">
-        {todos.map((item)=>(<TaskItem key={item.id} deleteItem={deleteItem} handleIsDone={handleIsDone} todo={item} updateTodoTitle={updateTodoTitle} triggerEditColumn={triggerEditColumn}/>))}
+        {todos.map((item)=>(<TaskItem key={item.id} deleteItem={deleteItem} handleSave={handleSave} handleIsDone={handleIsDone} todo={item} triggerEditColumn={triggerEditColumn}/>))}
     </div>
 )
 

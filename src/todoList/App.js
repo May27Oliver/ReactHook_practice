@@ -6,22 +6,7 @@ import Footer from './Footer'
 import {v4 as uuidv4} from 'uuid';
 import { getTodos } from '../api/todos'
 import './App.css';
-
-// let defaultTodos = [
-//     {
-//         id:uuidv4(),
-//         title:'Learn React',
-//         isDone:true,
-//         isEdit:false
-//     },
-//     {
-//         id:uuidv4(),
-//         title:'React hook',
-//         isDone:false,
-//         isEdit:false
-//     },
-// ];
-// console.log('defaultTodos',defaultTodos); 
+ 
 let defaultTodos=[];
 const App = () => {
     let [todos,setTodos] = useState(defaultTodos);//todoList array
@@ -50,12 +35,21 @@ const App = () => {
     }
 
     //顯示編輯input
-    const handleIsDone = (todos,callback) => {
+    const handleIsDone = (id,callback) => {
         if(callback){//檢查是否為編輯狀態，如為編輯狀態則關閉編輯狀態
             callback();
         }
-        todos.isDone = !todos.isDone;
-        setTodos(prevTodos=>[...prevTodos]);
+        setTodos((prevTodos)=>
+            prevTodos.map((todo)=>{
+                if(todo.id !== id){
+                    return todo;
+                }else if(todo.id === id && !todo.isEdit){
+                    return {...todo,isDone:todo.isDone?false:true}
+                }else if(todo.id === id && todo.isEdit){//編輯狀態不給isDone
+                    return {...todo,isDone:false}
+                }
+            })
+        );
     }
     
     //刪除todo事項
@@ -64,37 +58,44 @@ const App = () => {
     }
     
     //開啟關閉edit欄位
-    const triggerEditColumn = (id) =>{
-        setTodos(prevTodos=>{
-            return prevTodos.map(todo=>{
+    const triggerEditColumn = (id,editStatus) =>{
+        setTodos(prevTodos=>
+            prevTodos.map(todo => {
                 if(todo.id!==id)
                     return todo
                 else if(todo.id === id && todo.isDone)
                     return {
                         ...todo,
-                        isEdit:!todo.isEdit,
+                        isEdit:editStatus,
                         isDone:false
                     }
                 else if(todo.id === id)
                     return {
                         ...todo,
-                        isEdit:!todo.isEdit
+                        isEdit:editStatus
                     }
             })
-        });
+        );
     }
 
-    //變更todo title
-    const updateTodoTitle = (callback)=>{
-        if(callback)
-            callback();
-        setTodos(todos);
+    //儲存edit變更
+    const handleSave = (payload)=>{
+        const {id ,title} = payload;
+        setTodos(prevTodos => 
+            prevTodos.map(todo =>{
+                if(todo.id !== id)
+                    return todo
+                else if(todo.id === id)
+                    return {...todo,title,isEdit:false}
+            })
+        )
     }
+
     return (
         <div className = "app">
             <Header/>
             <AddToDo handleAddTodo={handleAddTodo} inputValue={inputValue} handleChange={handleChange}/>
-            <Todos todos={todos} deleteItem = {deletTodoItem} handleIsDone={handleIsDone} updateTodoTitle = {updateTodoTitle} triggerEditColumn={triggerEditColumn}/>
+            <Todos todos={todos} deleteItem = {deletTodoItem} handleIsDone={handleIsDone} handleSave={handleSave} triggerEditColumn={triggerEditColumn}/>
             <Footer things = {todos.length}/>
         </div>
     )

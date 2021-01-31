@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+製作 React todo List 筆記
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PJ 老師 Github 網站
+https://github.com/pjchender/learn-react-from-hooks-todo-mvc
 
-## Available Scripts
+vscode 套件有提供一些可以快速打出 class component 和 function component 語法的快捷鍵。
+請先安裝 vscode extension 模組：
 
-In the project directory, you can run:
+1.Simple React Snippets(裡面有 function component 的 snippet 語法＂sfc＂)
+https://marketplace.visualstudio.com/items?itemName=burkeholland.simple-react-snippets
 
-### `yarn start`
+2.Reactjs code snippets（裡面有 class component 的 snippet 語法＂rcc＂）
+https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3.React/Redux/react-router Snippets(裡面有 redux 的 snippet 語法)
+https://marketplace.visualstudio.com/items?itemName=discountry.react-redux-react-router-snippets
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+另外，如果想在 jsx 內也使用點語法產生有 className 的 component，可以做以下設定： 1.到喜好設定>設定 2.打開延伸套件模組->emmet，設定 json 3.輸入：
 
-### `yarn test`
+"settings":{
+"emmet.excludeLanguages": {
+"javascript":"javascriptreact",
+"markdown":"markdown"
+}
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+pure function 亦即當我在進行資料面的改動時，盡量不要去更改到 input 的 data，而必須去 output 一個新的記憶體位置，如此才會促使 setState 進行變更，也使整個 function programming 的過程更利於 unit test，所以 PJ 老師才會在父層使用 map 的方法進行資料面的改動。
+所有陣列的方法，會改變原陣列的方法均不為 pure function，以原陣列進行運算後得出新陣列 output 才算是 pure function
