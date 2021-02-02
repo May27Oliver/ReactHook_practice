@@ -16,7 +16,7 @@ const TaskItem = ({pk,deletTodoItem,handleIsDone,todo,triggerEditColumn,handleSa
     }
     const handleKeyDown= e =>{
         if(e.keyCode=== 13 && tempTitle.length!== 0)
-            handleSave({id:todo.id,title:tempTitle});
+            handleSave({id:todo.id,title:tempTitle,isDone:todo.isDone});
         else if(e.keyCode === 27){
             triggerEditColumn(todo.id,false)
             setTempTitle(todo.title)
@@ -26,7 +26,7 @@ const TaskItem = ({pk,deletTodoItem,handleIsDone,todo,triggerEditColumn,handleSa
         <div className={clsx("task-item",{done:todo.isDone,edit:todo.isEdit})}>
             {/* task-item 要有done 和 edit兩個判斷 */}
             <div className="task-item-checked">
-                <span className="icon icon-checked" onDoubleClick={()=>handleIsDone(todo.id,checkIsDoneCantModify)}>
+                <span className="icon icon-checked" onDoubleClick={()=>handleIsDone({id:todo.id,title:todo.title,isDone:todo.isDone?false:true},checkIsDoneCantModify)}>
                 {/* icon-check-circle */}
                     <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="#ff6600" fillRule="evenodd"
@@ -39,7 +39,7 @@ const TaskItem = ({pk,deletTodoItem,handleIsDone,todo,triggerEditColumn,handleSa
             <div className="task-item-body">
                 <span className="task-item-body-text" onDoubleClick={()=>{
                     triggerEditColumn(todo.id,true)
-                }}>{todo.title}</span>
+                }}>{tempTitle}</span>
                 <input className="task-item-body-input" type="text" placeholder="新增工作" 
                     value={tempTitle} 
                     onChange={handleEditChange}
