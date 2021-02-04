@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link,useHistory, Redirect } from 'react-router-dom';
+
 
 const Container = styled.div`
     display:flex;
@@ -30,11 +32,16 @@ const LoginButton = styled.button`
     }
 `;
 
-const Login =({handleSetPage})=>{
+const Login =({handleSetPage,goTodos,handleFBLogin,status})=>{
+    console.log('status',status);
+    if(status==='connected')
+        return <Redirect to="/todos"/>
     return (
         <Container>
             <Title>登入 Todo</Title>
-            <LoginButton onClick={()=>handleSetPage('TodoApp')}>Facebook 登入</LoginButton>
+            <Link to='/todos'>
+                <LoginButton onClick={handleFBLogin}>Facebook 登入</LoginButton>
+            </Link>
         </Container>
     )
 }

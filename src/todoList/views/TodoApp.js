@@ -8,7 +8,7 @@ import { getTodos,createTodo, updateTodo, deleteTodo } from './../../api/todos'
 import './../App.css';
  
 let defaultTodos=[];
-const TodoApp = () => {
+const TodoApp = ({handleFBLogout}) => {
     let [todos,setTodos] = useState(defaultTodos);//todoList array
     let [inputValue,setInputValue] = useState('');//input欄位的值 
     
@@ -97,7 +97,7 @@ const TodoApp = () => {
             <Header/>
             <AddToDo handleAddTodo={handleAddTodo} inputValue={inputValue} handleChange={handleChange}/>
             <Todos todos={todos} deletTodoItem = {deletTodoItem} handleIsDone={handleIsDone} handleSave={handleSave} triggerEditColumn={triggerEditColumn}/>
-            <Footer things = {todos.length}/>
+            <Footer things = {todos.length} handleFBLogout={handleFBLogout}/>
         </>
     )
 }

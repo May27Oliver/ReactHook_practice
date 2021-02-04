@@ -14,11 +14,11 @@ const LogoutButton = styled.button`
     }
 `
 
-const Footer =({things})=>(
+const Footer =({things,handleFBLogout})=>(
     <footer>
         <Container>
             <p>剩餘項目: {things}</p>
-            <LogoutButton className="btn-reset">登出</LogoutButton>  
+            <LogoutButton className="btn-reset" onClick={handleFBLogout}>登出</LogoutButton>  
         </Container>
     </footer>
 )
