@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ReactHook_practice/static/css/main.1e5bef2f.chunk.css",
+    "main.js": "/ReactHook_practice/static/js/main.a8459b47.chunk.js",
+    "main.js.map": "/ReactHook_practice/static/js/main.a8459b47.chunk.js.map",
+    "runtime-main.js": "/ReactHook_practice/static/js/runtime-main.c24bfb26.js",
+    "runtime-main.js.map": "/ReactHook_practice/static/js/runtime-main.c24bfb26.js.map",
+    "static/js/2.f2f48c65.chunk.js": "/ReactHook_practice/static/js/2.f2f48c65.chunk.js",
+    "static/js/2.f2f48c65.chunk.js.map": "/ReactHook_practice/static/js/2.f2f48c65.chunk.js.map",
+    "static/js/3.e8a322c9.chunk.js": "/ReactHook_practice/static/js/3.e8a322c9.chunk.js",
+    "static/js/3.e8a322c9.chunk.js.map": "/ReactHook_practice/static/js/3.e8a322c9.chunk.js.map",
+    "index.html": "/ReactHook_practice/index.html",
+    "static/css/main.1e5bef2f.chunk.css.map": "/ReactHook_practice/static/css/main.1e5bef2f.chunk.css.map",
+    "static/js/2.f2f48c65.chunk.js.LICENSE.txt": "/ReactHook_practice/static/js/2.f2f48c65.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/ReactHook_practice/static/media/check-hover.5e00062b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c24bfb26.js",
+    "static/js/2.f2f48c65.chunk.js",
+    "static/css/main.1e5bef2f.chunk.css",
+    "static/js/main.a8459b47.chunk.js"
+  ]
+}
