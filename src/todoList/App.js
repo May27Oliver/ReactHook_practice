@@ -47,6 +47,7 @@ const App = () => {
 
     const handleFBLogin = () => {
         window.FB.login((res)=>{
+            console.log('handleFBLogin',res)
             setRes(res);
             //此處將回傳：
             /*
@@ -69,6 +70,7 @@ const App = () => {
 
     const handleFBLogout = () => {
         window.FB.logout(res=>{
+            console.log('handleFBLogout',res)
             setRes(res);//觸發重跑一次App.js
         });
         //此處會印出{authResponse:null,status:"unknown"}
